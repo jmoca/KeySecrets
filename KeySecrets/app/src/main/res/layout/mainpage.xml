@@ -140,14 +140,15 @@
         app:layout_constraintVertical_bias="0.46"
         tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="559dp"
-        android:src="@drawable/baseline_star_24"
-        app:backgroundTint="@android:color/black"
-        tools:ignore="MissingConstraints" />
+        android:background="@color/transparent"
+        android:src="@drawable/estrella"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="342dp"
+
+        tools:layout_editor_absoluteY="573dp" />
 
     <include
         layout="@layout/footer"
