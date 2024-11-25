@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">KeySecrets</string>
+    <string name="Login">Login</string>
+    <string name="password">Password\n</string>
+    <string name="email_phone">Email/Teléfono</string>
+    <string name="logo">logo</string>
+    <string name="back">Back</string>
+    <string name="last_search">Last search</string>
+    <string name="view_search">View Search</string>
+    <string name="clear_search">Clear Search</string>
+    <string name="search_secret">Search secret...</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="wi_fi">Wi-Fi</string>
+    <string name="red_m_vil">Red móvil</string>
+    <string name="go">Go</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="conexion_compartir">Conexión y compartir</string>
+    <string name="personalizacion">Personalizaciones</string>
+    <string name="inicio">Pantalla de inicio y pantalla bloqueada</string>
+    <string name="brillo">Pantalla y brillo</string>
+    <string name="sonido">Sonido y vibración</string>
+    <string name="notificacion">Notificaciones y barra de estado</string>
+</resources>
