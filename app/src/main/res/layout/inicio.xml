@@ -5,14 +5,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to SignUp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="364dp"
+        android:layout_height="83dp"
+        android:gravity="center"
+        android:text="Bienvenido a KeyScrets"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.103"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_width="269dp"
+        android:layout_height="187dp"
+        android:src="@drawable/logotipo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.328"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="320dp"
+        android:layout_height="145dp"
+        android:layout_margin="16dp"
+        android:background="#333333"
+        android:backgroundTint="@color/black"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="316dp"
+            android:layout_height="140dp"
+            android:backgroundTint="@color/black"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.309"
+            tools:ignore="MissingConstraints">
+
+            <!-- Texto principal -->
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="293dp"
+                android:layout_height="108dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="2dp"
+                android:text="La aplicación donde podras expresar tus vivencias más enigmaticas con total anonimidad o ver los secretos más oscuros del resto de la sociedad."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/inicio"
+        android:layout_width="228dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#EEEEEE"
+        android:padding="12dp"
+        android:text="COMIENZA AHORA"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.402" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
