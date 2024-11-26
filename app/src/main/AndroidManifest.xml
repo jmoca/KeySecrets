@@ -13,14 +13,25 @@
         android:theme="@style/Theme.KeySecrets"
         tools:targetApi="31">
         <activity
+            android:name=".SignUpActivity"
+            android:exported="true">
+        </activity>
+        <!-- MainActivity, que es la actividad de inicio -->
+        <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
+        <!-- SignUpActivity, pantalla de registro -->
+
+
+        <!-- LoginActivity, pantalla de login -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>

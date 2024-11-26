@@ -24,4 +24,5 @@
     <string name="anadir_archivos">Añadir archivos</string>
     <string name="send">SEND</string>
     <string name="secreto_nuevo">Escribe aqui el secreto... ¡Pero no digas quien eres!</string>
+    <string name="register">Register</string>
 </resources>
