@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "569011584951",
+    "project_id": "keysecret-f5d42",
+    "storage_bucket": "keysecret-f5d42.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569011584951:android:50992f3d8d378af6c4f232",
+        "android_client_info": {
+          "package_name": "com.example.keysecrets"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD9j_7Ykgc4EkQQslstE_LVhCm2BWevvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
