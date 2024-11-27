@@ -7,16 +7,19 @@
     <include layout="@layout/navbar" />
 
 
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
         android:src="@drawable/estrella"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="342dp"
+        app:layout_constraintBottom_toBottomOf="parent"
 
-        tools:layout_editor_absoluteY="573dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.834"
+        tools:ignore="MissingConstraints" />
 
     <include
         layout="@layout/footer"
@@ -26,9 +29,13 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="173dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.277"
+        tools:ignore="MissingConstraints">
 
 
         <androidx.cardview.widget.CardView
@@ -119,12 +126,11 @@
                             app:tint="#FFFFFF" />
 
 
-
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/"
                         app:tint="#FFFFFF" />
                     <!-- Ícono de "Vista" -->
                     <LinearLayout

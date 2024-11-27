@@ -16,9 +16,12 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
+        android:id="@+id/keyImageView"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:focusable="true"
         android:src="@drawable/key"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.151"
@@ -28,9 +31,12 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
+        android:id="@+id/nuevoImageView"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:focusable="true"
         android:src="@drawable/nuevo"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +45,12 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
+        android:id="@+id/busquedaImageView"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:focusable="true"
         android:src="@drawable/busqueda"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.84"

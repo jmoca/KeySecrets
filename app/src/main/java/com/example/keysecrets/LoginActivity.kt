@@ -18,7 +18,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        // Inicializar Firebase Auth
         auth = FirebaseAuth.getInstance()
 
         val emailEditText: EditText = findViewById(R.id.emailOrPhoneEditText)
@@ -39,13 +38,12 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
-            // Iniciar sesión con Firebase Authentication
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Login exitoso
                         Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MainpageActivity::class.java)
+                        startActivity(intent)
                     } else {
                         val errorMessage = when (task.exception) {
                             is FirebaseAuthInvalidUserException -> "Usuario no encontrado"
@@ -58,7 +56,6 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
-        // Desde LoginActivity hacia SignUpActivity
         val signUpButton: Button = findViewById(R.id.signUpButton) // Botón que dirige a SignUp
         signUpButton.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)

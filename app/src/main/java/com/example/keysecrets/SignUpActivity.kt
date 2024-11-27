@@ -19,7 +19,6 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup)
 
-        // Inicializar Firebase Auth
         auth = FirebaseAuth.getInstance()
 
         val emailEditText: EditText = findViewById(R.id.editText2)
@@ -40,12 +39,9 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
-            // Registrar usuario con Firebase Authentication
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Registro exitoso
                         Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
                     } else {
                         val errorMessage = when (task.exception) {
@@ -60,7 +56,6 @@ class SignUpActivity : AppCompatActivity() {
 
         }
 
-        // Desde SignUpActivity hacia LoginActivity
         val loginButton: Button = findViewById(R.id.loginButton) // Botón que dirige a Login
         loginButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -70,7 +65,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        return password.length >= 6 // Puedes agregar más reglas
+        return password.length >= 6
     }
 
 
@@ -78,10 +73,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            // Usuario autenticado, redirigir al dashboard
             val intent = Intent(this, MainActivity::class.java) // Dashboard o actividad principal
             startActivity(intent)
-            finish() // Evitar que el usuario regrese al login/registro
+            finish()
         }
     }
 

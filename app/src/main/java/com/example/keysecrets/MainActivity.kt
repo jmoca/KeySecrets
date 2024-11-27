@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.inicio)
 
         // Referencia al botón que va a abrir SignUpActivity
-        val signUpButton = findViewById<Button>(R.id.signUpButton)
+        val signUpButton = findViewById<Button>(R.id.inicio)
         signUpButton.setOnClickListener {
             try {
                 val intent = Intent(this, SignUpActivity::class.java)
