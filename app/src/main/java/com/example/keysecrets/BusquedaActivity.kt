@@ -38,25 +38,44 @@ class BusquedaActivity : AppCompatActivity() {
             true
         }
 
+        // Configurar el listener para el ImageView que limpia la búsqueda
+        binding.clearSearch.setOnClickListener {
+            binding.searchBarEdittext.text.clear()  // Limpiar el texto del EditText
+            // Limpiar los resultados de búsqueda
+            postAdapter.updatePosts(emptyList())
+            // Ocultar el mensaje de "No hay resultados"
+            binding.noResultsMessage.visibility = android.view.View.GONE
+        }
+
         // Configurar Footer Navigation
         FooterNavigation.setupNavigation(this)
     }
 
     private fun searchPosts(query: String) {
-
         Log.d("BusquedaActivity", "Iniciando búsqueda para query: $query")
 
         firestore.collection("posts")
-            .orderBy("content", Query.Direction.ASCENDING)
-            .startAt(query)
-            .endAt(query + "\uf8ff")
             .get()
             .addOnSuccessListener { result ->
+                // Filtrar los posts que contienen la consulta
                 val posts = result.mapNotNull { it.toObject(Post::class.java) }
+                    .filter { it.content.contains(query, ignoreCase = true) }
+
+                // Actualizar la lista de posts
                 postAdapter.updatePosts(posts)
+
+                // Verificar si se encontraron resultados
+                if (posts.isEmpty()) {
+                    // Mostrar el mensaje de "No hay publicaciones"
+                    binding.noResultsMessage.visibility = android.view.View.VISIBLE
+                } else {
+                    // Ocultar el mensaje si hay resultados
+                    binding.noResultsMessage.visibility = android.view.View.GONE
+                }
             }
             .addOnFailureListener { e ->
                 e.printStackTrace()
             }
     }
+
 }

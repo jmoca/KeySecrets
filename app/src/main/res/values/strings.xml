@@ -27,4 +27,5 @@
     <string name="register">Register</string>
     <string name="user_id_text">Usuario ID: %1$d</string>
     <string name="created_at_text">Fecha: %1$d</string>
+    <string name="no_hay_publicaciones_relacionadas_con_esta_palabra">No hay publicaciones relacionadas con esta palabra</string>
 </resources>
