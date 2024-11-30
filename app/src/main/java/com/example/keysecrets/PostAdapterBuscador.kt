@@ -13,7 +13,7 @@ class PostAdapterBuscador(private var posts: List<Post>) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(post: Post) {
             binding.tvContent.text = post.content
-            binding.tvUserId.text = binding.root.context.getString(R.string.user_id_text, post.user_id)
+
             binding.tvCreatedAt.text = binding.root.context.getString(R.string.created_at_text, post.created_at)
         }
 

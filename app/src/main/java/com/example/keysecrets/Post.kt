@@ -5,5 +5,6 @@ data class Post(
     val user_id: Long? = null,
     val content: String = "",
     val image_url: String = "",
-    val created_at: Long = 0L
+    val created_at: Long = 0L,
+    var likes: Int = 0
 )
