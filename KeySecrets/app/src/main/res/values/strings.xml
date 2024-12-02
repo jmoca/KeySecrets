@@ -1,5 +1,33 @@
 <resources>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar menú de navegación</string>
     <string name="app_name">KeySecrets</string>
     <string name="new_acount">New Acount</string>
     <string name="email_phone">Email/Phone</string>
+    <string name="Login">Login</string>
+    <string name="password">Password\n</string>
+    <string name="logo">logo</string>
+    <string name="back">Back</string>
+    <string name="last_search">Last search</string>
+    <string name="view_search">View Search</string>
+    <string name="clear_search">Clear Search</string>
+    <string name="search_secret">Search secret…</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="wi_fi">Wi-Fi</string>
+    <string name="red_m_vil">Red móvil</string>
+    <string name="go">Go</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="conexion_compartir">Conexión y compartir</string>
+    <string name="personalizacion">Personalizaciones</string>
+    <string name="inicio">Pantalla de inicio y pantalla bloqueada</string>
+    <string name="brillo">Pantalla y brillo</string>
+    <string name="sonido">Sonido y vibración</string>
+    <string name="notificacion">Notificaciones y barra de estado</string>
+    <string name="anadir_archivos">Añadir archivos</string>
+    <string name="send">SEND</string>
+    <string name="secreto_nuevo">Escribe aqui el secreto... ¡Pero no digas quien eres!</string>
+    <string name="register">Register</string>
+    <string name="user_id_text">Usuario ID: %1$d</string>
+    <string name="created_at_text">Fecha: %1$d</string>
+    <string name="no_hay_publicaciones_relacionadas_con_esta_palabra">No hay publicaciones relacionadas con esta palabra</string>
 </resources>

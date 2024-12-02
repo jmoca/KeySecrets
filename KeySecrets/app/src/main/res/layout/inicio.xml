@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="375dp"
+        android:layout_height="137dp"
+        android:gravity="center"
+        android:text="𝓑𝓲𝓮𝓷𝓿𝓮𝓷𝓲𝓭𝓸 𝓪 𝓚𝓮𝔂𝓢𝓬𝓻𝓮𝓽𝓼"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.103"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_width="269dp"
+        android:layout_height="187dp"
+        android:src="@drawable/logotipo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.328"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="373dp"
+        android:layout_height="106dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="2dp"
+        android:textAlignment="center"
+        android:text="𝙀𝙭𝙥𝙧𝙚𝙨𝙖 𝙩𝙪𝙨 𝙨𝙚𝙘𝙧𝙚𝙩𝙤𝙨 𝙘𝙤𝙣 𝙖𝙣𝙤𝙣𝙞𝙢𝙖𝙩𝙤"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.665" />
+
+    <Button
+        android:id="@+id/inicio"
+        android:layout_width="228dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#EEEEEE"
+        android:padding="12dp"
+        android:text="𝘾𝙊𝙈𝙄𝙀𝙉𝙕𝘼 𝘼𝙃𝙊𝙍𝘼"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.838" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
