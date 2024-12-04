@@ -30,4 +30,5 @@
     <string name="user_id_text">Usuario ID: %1$d</string>
     <string name="created_at_text">Fecha: %1$d</string>
     <string name="no_hay_publicaciones_relacionadas_con_esta_palabra">No hay publicaciones relacionadas con esta palabra</string>
+    <string name="default_web_client_id">767428025160-knemnpfq5tql5sdhaimdtod9ndgc64jr.apps.googleusercontent.com\n</string>
 </resources>

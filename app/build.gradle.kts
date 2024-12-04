@@ -42,7 +42,6 @@ android {
             excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF"
         }
     }
-    
 }
 
 dependencies {
@@ -58,6 +57,10 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.identity.jvm)
     implementation(libs.firebase.database.ktx)
+
+    // Agregar dependencia de Google Sign-In
+    implementation("com.google.android.gms:play-services-auth:20.3.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

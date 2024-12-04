@@ -2,14 +2,22 @@ package com.example.keysecrets
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
@@ -17,6 +25,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +37,21 @@ class SignUpActivity : AppCompatActivity() {
         val passwordEditText: EditText = findViewById(R.id.editText)
         val registerButton: Button = findViewById(R.id.button)
         val loginButton: Button = findViewById(R.id.loginButton)
+        val googleSignInButton: Button = findViewById(R.id.googleSignInButton)  // Añadimos el botón de Google
+
+        // Configura el cliente de Google Sign-In
+        val gso = com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder(
+            GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))  // Usa tu ID de cliente
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        googleSignInButton.setOnClickListener {
+            val signInIntent = googleSignInClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)  // RC_SIGN_IN es un código de solicitud arbitrario
+        }
 
         registerButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
@@ -48,23 +72,23 @@ class SignUpActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val userId = auth.currentUser?.uid
                         val user = hashMapOf(
-                            "user_id" to System.currentTimeMillis(),  // Generar ID numérico único
-                            "username" to email.substringBefore("@"), // Nombre de usuario basado en el correo
-                            "password" to password,                   // Nota: Evitar en producción
-                            "created_at" to Date()                    // Fecha de creación
+                            "user_id" to System.currentTimeMillis(),
+                            "username" to email.substringBefore("@"),
+                            "password" to password,
+                            "created_at" to Date()
                         )
 
                         userId?.let {
                             db.collection("users").document(it)
                                 .set(user)
                                 .addOnSuccessListener {
-                                    Toast.makeText(this, "Usuario registrado y guardado con éxito", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
                                     val intent = Intent(this, MainpageActivity::class.java)
                                     startActivity(intent)
                                     finish()
                                 }
                                 .addOnFailureListener { e ->
-                                    Toast.makeText(this, "Error al guardar el usuario en Firestore: ${e.message}", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(this, "Error al guardar el usuario: ${e.message}", Toast.LENGTH_LONG).show()
                                 }
                         }
                     } else {
@@ -85,6 +109,38 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    // Responder al resultado del inicio de sesión con Google
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                firebaseAuthWithGoogle(account!!)
+            } catch (e: ApiException) {
+                Log.e("GoogleSignInError", "Error al iniciar sesión con Google", e)
+                Toast.makeText(this, "Error de inicio de sesión con Google: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    // Usar las credenciales de Google para autenticarse con Firebase
+    private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
+        val credential: AuthCredential = GoogleAuthProvider.getCredential(account.idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    Toast.makeText(this, "Inicio de sesión con Google exitoso", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MainpageActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Error de autenticación con Firebase", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
     private fun isPasswordValid(password: String): Boolean {
         return password.length >= 6
     }
@@ -97,5 +153,9 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    companion object {
+        private const val RC_SIGN_IN = 9001  // Código de solicitud para Google Sign-In
     }
 }
