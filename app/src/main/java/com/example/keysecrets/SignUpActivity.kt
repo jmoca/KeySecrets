@@ -73,7 +73,7 @@ class SignUpActivity : AppCompatActivity() {
                         val userId = auth.currentUser?.uid
                         val user = hashMapOf(
                             "user_id" to System.currentTimeMillis(),
-                            "username" to email.substringBefore("@"),
+                            "username" to email,
                             "password" to password,
                             "created_at" to Date()
                         )
@@ -131,10 +131,31 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    Toast.makeText(this, "Inicio de sesión con Google exitoso", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainpageActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    val userId = user?.uid
+                    val username = user?.email?: "Unknown"
+                    val createdAt = Date()
+
+                    // Crear un HashMap con los datos del usuario
+                    val userData = hashMapOf(
+                        "user_id" to userId,
+                        "username" to username,
+                        "created_at" to createdAt
+                    )
+
+                    // Guardar en Firestore
+                    userId?.let {
+                        db.collection("users").document(it)
+                            .set(userData)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this, MainpageActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this, "Error al guardar el usuario: ${e.message}", Toast.LENGTH_LONG).show()
+                            }
+                    }
                 } else {
                     Toast.makeText(this, "Error de autenticación con Firebase", Toast.LENGTH_SHORT).show()
                 }
