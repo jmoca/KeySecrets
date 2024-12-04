@@ -94,6 +94,7 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdap
     private fun updateLikesInFirestore(post: Post, holder: PostViewHolder) {
         val postRef = db.collection("posts").document(post.post_id.toString())
 
+
         // Intentamos obtener el documento primero
         postRef.get().addOnSuccessListener { document ->
             if (document.exists()) {

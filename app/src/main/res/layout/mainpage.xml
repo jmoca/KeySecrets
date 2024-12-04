@@ -7,18 +7,22 @@
     <include layout="@layout/navbar" />
 
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:src="@drawable/estrella"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!--rafa@gmail.com-->
 
+    <Button
+        android:id="@+id/btn_sort"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:padding="12dp"
+        android:text="Ordenar"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834"
+        app:layout_constraintVertical_bias="0.193"
         tools:ignore="MissingConstraints" />
 
     <include
@@ -28,14 +32,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_posts"
-        android:layout_width="374dp"
-        android:layout_height="584dp"
+        android:layout_width="379dp"
+        android:layout_height="557dp"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintVertical_bias="0.666" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
