@@ -10,7 +10,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings)
 
-
+        FooterNavigation.setupNavigation(this)
 
     }
 }
