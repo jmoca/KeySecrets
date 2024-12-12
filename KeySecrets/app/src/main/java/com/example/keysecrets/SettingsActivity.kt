@@ -10,16 +10,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings)
 
-        // Referencia al botón que va a abrir SignUpActivity
-        val settingsButton = findViewById<Button>(R.id.inicio)
-        settingsButton.setOnClickListener {
-            try {
-                val intent = Intent(this, SettingsActivity::class.java)
-                startActivity(intent)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
+        FooterNavigation.setupNavigation(this)
 
     }
 }
